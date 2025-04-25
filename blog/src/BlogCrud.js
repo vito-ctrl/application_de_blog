@@ -9,7 +9,8 @@ export const getBlogs = () => {
 
 // Ajouter un article
 export const postBlog = (data) => {
-  return axios.post(API_URL, data);
+  const headers = data instanceof
+  return axios.post(API_URL, data)
 };
 
 // Supprimer un article
