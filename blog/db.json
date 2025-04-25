@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "user@example.com",
+      "password": "password123",
+      "name": "John Doe"
+    },
+    {
+      "id": "2",
+      "email": "jane@example.com",
+      "password": "password456",
+      "name": "Jane Smith"
+    },
+    {
+      "id": "84b2",
+      "username": "fcgvhb",
+      "email": "sr@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "f610",
+      "username": "hossna salem",
+      "email": "hossnabensalem6@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "3681",
+      "username": "ilham bensalem",
+      "email": "ilhambensalem1@gmail.com",
+      "password": "1234azert"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "Article 1",
+      "content": "This is the content of Article 1."
+    },
+    {
+      "id": "2",
+      "title": "Article 2",
+      "content": "This is the content of Article 2."
+    },
+    {
+      "id": "439b",
+      "title": "Les bases de React pour les débutants",
+      "content": "React est une bibliothèque JavaScript pour construire des interfaces utilisateur. Elle permet de créer des composants réutilisables et de gérer l'état de l'application de manière efficace."
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "articleId": 1,
+      "content": "This is a comment for Article 1."
+    },
+    {
+      "id": "2",
+      "articleId": 2,
+      "content": "This is a comment for Article 2."
+    }
+  ]
+}
