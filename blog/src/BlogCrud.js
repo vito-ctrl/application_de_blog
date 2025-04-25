@@ -7,10 +7,15 @@ export const getBlogs = () => {
   return axios.get(API_URL);
 };
 
+
 // Ajouter un article
 export const postBlog = (data) => {
-  const headers = data instanceof
-  return axios.post(API_URL, data)
+  // Check if data is FormData (for file uploads)
+  const headers = data instanceof FormData ? 
+    { 'Content-Type': 'multipart/form-data' } : 
+    { 'Content-Type': 'application/json' };
+  
+  return axios.post(API_URL, data, { headers });
 };
 
 // Supprimer un article

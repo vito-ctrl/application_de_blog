@@ -43,7 +43,6 @@ function AddBlog() {
                     contenu: '',
                     image: ''
                 });
-                setImage(null);
                 alert("Blog post added successfully!");
             } catch (error) {
                 console.error("Error:", error);
@@ -60,13 +59,20 @@ function AddBlog() {
     };
 
     const handleImageChange = (e) => {
-        const file = e.target.files[0]
+        const file = e.target.files[0];
         if (file) {
+            // Convert image to base64 string for JSON Server storage
             const reader = new FileReader();
             reader.onload = () => {
-                setImage(reader.result)
+                const base64String = reader.result;
+                
+                // Update formData with the base64 string
+                setFormData({
+                    ...formData,
+                    image: base64String
+                });
             };
-            reader.readAsDataURL(file)
+            reader.readAsDataURL(file);
         }
     }
 
