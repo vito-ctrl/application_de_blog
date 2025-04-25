@@ -7,9 +7,6 @@ export const getBlogs = () => {
   return axios.get(API_URL);
 };
 
-export const getBlogbyid = (id) => {
-  return axios.
-}
 
 // Ajouter un article
 export const postBlog = (data) => {
