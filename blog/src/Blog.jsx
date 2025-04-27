@@ -78,12 +78,12 @@ function Blog() {
                 ) : data && data.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
                         {data.map((item) => (
-                             <div 
-                             key={item.id} 
-                             className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-2xl flex flex-col h-full transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-gray-600"
-                         >
-                            <Link to={'/deatels'}>
-                                <div className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-2xl flex flex-col h-full transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-gray-600" key={item.id}>
+                            <div 
+                                key={item.id} 
+                                className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-2xl flex flex-col h-full transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-gray-600"
+                            >
+                                {/* Blog content section */}
+                                <Link to={`/deatels/${item.id}`} className="flex-grow flex flex-col">
                                     {renderImage(item)}
                                     <div className="p-6 flex-grow flex flex-col">
                                         <span className="flex justify-center text-sm text-teal-500 uppercase tracking-wider font-semibold mb-4 bg-teal-500/10 py-1 px-4 w-40 rounded-full">
@@ -95,36 +95,38 @@ function Blog() {
                                         <p className="text-gray-400 leading-relaxed mb-4 flex-grow line-clamp-3">
                                             {item.contenu}
                                         </p>
-                                        
-                                        <div className="flex flex-col space-y-3 mt-4 pt-4 border-t border-gray-700">
-                                            <Link to={`/EditBlog/${item.id}`} className="flex items-center justify-center bg-teal-500  hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:-translate-y-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
-                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                                                </svg>
-                                                Update
-                                            </Link>
-                                            <button 
-                                                onClick={() => handleDelete(item.id)} 
-                                                className="flex items-center justify-center bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:-translate-y-0.5"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
-                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                                    <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                                </svg>
-                                                Delete
-                                            </button>
-                                        </div>
                                     </div>
+                                </Link>
+                                
+                                <div className="flex flex-col space-y-3 p-6 pt-0 border-t border-gray-700">
+                                    <Link 
+                                        to={`/edit-article/${item.id}`} 
+                                        className="flex items-center justify-center bg-teal-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:-translate-y-0.5"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                        Update
+                                    </Link>
+                                    <button 
+                                        onClick={() => handleDelete(item.id)} 
+                                        className="flex items-center justify-center bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition-all duration-300 hover:-translate-y-0.5"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                        Delete
+                                    </button>
                                 </div>
-                        </Link>
-                        </div>
+                            </div>
                         ))}
                     </div>
                 ) : (
                     <div className="text-center py-20 text-gray-500 bg-gray-800 border border-dashed border-gray-700 rounded-2xl mt-10">
                         <h3 className="text-2xl text-gray-300 font-bold mb-4">No blog posts found</h3>
                         <p className="mb-8 text-lg">Create your first blog post to get started</p>
-                        <Link to={'/AddBlog'} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-1">
+                        <Link to={'/create-article'} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-1">
                             Create Blog Post
                         </Link>
                     </div>

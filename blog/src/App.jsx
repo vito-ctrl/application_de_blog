@@ -7,6 +7,7 @@ import EditArticlePage from "./pages/EditArticlePage";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
+import Deatels from "./pages/Deatels";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Blog/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/edit-article/:id"
+          element={
+            <ProtectedRoute>
+              <EditArticlePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/deatels/:id"
+          element={
+            <ProtectedRoute>
+              <Deatels />
             </ProtectedRoute>
           }
         />
