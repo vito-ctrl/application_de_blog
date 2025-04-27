@@ -59,6 +59,12 @@
       "username": "abdo afifi",
       "email": "abdoafifi@gmail.com",
       "password": "qsdf"
+    },
+    {
+      "id": "1c84",
+      "username": "aymane",
+      "email": "aymane@mailinator.com",
+      "password": "Pa$$w0rd!"
     }
   ],
   "articles": [

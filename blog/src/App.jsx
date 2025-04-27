@@ -1,30 +1,31 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import ArticlesPage from "./pages/ArticlesPage";
-import CreateArticlePage from "./pages/CreateArticlePage";
-import EditArticlePage from "./pages/EditArticlePage";  // استيراد الصفحة الجديدة
+import Blog from "./Blog";
+import AddBlog from "./AddBlog";
+import EditArticlePage from "./pages/EditArticlePage"; 
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
 
 function App() {
   const location = useLocation();
   const isAuth = localStorage.getItem("user");
 
-  // إخفاء الـ Navbar في صفحات التسجيل وتسجيل الدخول
   const hideNavbar = location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <div>
-      {!hideNavbar && isAuth && <Navbar />} {/* عرض Navbar فقط إذا كان المستخدم مسجل دخول */}
+      {!hideNavbar && isAuth && <Navbar />}
       <Routes>
+        <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/articles"
           element={
             <ProtectedRoute>
-              <ArticlesPage />
+              <Blog/>
             </ProtectedRoute>
           }
         />
@@ -32,12 +33,12 @@ function App() {
           path="/create-article"
           element={
             <ProtectedRoute>
-              <CreateArticlePage />
+              <AddBlog/>
             </ProtectedRoute>
           }
         />
         <Route
-          path="/edit-article/:id"  // إضافة المسار لتعديل المقال
+          path="/edit-article/:id"
           element={
             <ProtectedRoute>
               <EditArticlePage />

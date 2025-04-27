@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "./components/Header";
 import { Link } from "react-router-dom";  
 import { getBlogs, deleteBlog } from './BlogCrud.js';
 
@@ -58,14 +57,13 @@ function Blog() {
 
     return (
         <>  
-            <Header/>
             <div className="max-w-6xl mx-auto px-5">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center my-20 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-gradient-to-r after:from-teal-700 after:to-teal-500 after:rounded">
                     Latest Blog Posts
                 </h1>
                 
                 <div className="flex justify-center my-8">
-                    <Link to={'/AddBlog'} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-xl active:translate-y-0">
+                    <Link to={'/create-article'} className="inline-flex items-center bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-xl active:translate-y-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="mr-2">
                             <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
                         </svg>
@@ -80,6 +78,10 @@ function Blog() {
                 ) : data && data.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
                         {data.map((item) => (
+                             <div 
+                             key={item.id} 
+                             className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-2xl flex flex-col h-full transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-gray-600"
+                         >
                             <Link to={'/deatels'}>
                                 <div className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-2xl flex flex-col h-full transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-gray-600" key={item.id}>
                                     {renderImage(item)}
@@ -115,6 +117,7 @@ function Blog() {
                                     </div>
                                 </div>
                         </Link>
+                        </div>
                         ))}
                     </div>
                 ) : (

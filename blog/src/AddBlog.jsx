@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './AddBlog.css';
-import Header from "./components/Header";
 import { postBlog } from "./BlogCrud.js"; 
 
 function AddBlog() {
@@ -78,7 +77,6 @@ function AddBlog() {
 
     return (
         <>  
-            <Header/>
             <h1 id="sit_title">Gestion de Blog</h1>
             <form onSubmit={handleSubmit} className="mx-auto max-w-xl">
                 <div className="flex items-center justify-center border-b border-teal-500 py-2">

@@ -10,6 +10,7 @@
     "start": "concurrently \"npm:dev\" \"npm:api\""
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
